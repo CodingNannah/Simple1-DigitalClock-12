@@ -15,7 +15,8 @@ class DigitalClock {
     update() {
         const parts = this.getTimeParts();
         const minutesFormatted = parts.minute.toString().padStart(2, "0");
-        const timeFormatted = `${parts.hour}:${minutesFormatted}`;
+        const secondsFormatted = parts.second.toString().padStart(2, "0");
+        const timeFormatted = `${parts.hour}:${minutesFormatted}:${secondsFormatted}`;
         const amPm = parts.isAm ? "AM" : "PM";
 
         this.element.querySelector(".clock-time").textContent = timeFormatted;
@@ -29,7 +30,7 @@ class DigitalClock {
         return {
             hour: now.getHours() % 12 || 12,
             minute: now.getMinutes(),
-            // second: now.getSeconds(),
+            second: now.getSeconds(),
             isAM: now.getHours() < 12
         };
     }
