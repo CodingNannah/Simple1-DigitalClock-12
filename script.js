@@ -17,7 +17,7 @@ class DigitalClock {
         const minutesFormatted = parts.minute.toString().padStart(2, "0");
         const secondsFormatted = parts.second.toString().padStart(2, "0");
         const timeFormatted = `${parts.hour}:${minutesFormatted}:${secondsFormatted}`;
-        const amPm = parts.isAm ? "AM" : "PM";
+        const amPm = parts.isAM ? "AM" : "PM";
 
         this.element.querySelector(".clock-time").textContent = timeFormatted;
         this.element.querySelector(".clock-ampm").textContent = amPm;
